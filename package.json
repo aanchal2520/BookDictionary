@@ -1,0 +1,25 @@
+{
+  "name": "bookdictionary",
+  "version": "1.0.0",
+  "description": "This is a book dictionary based on NodeJs and MySQL",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aanchal2520/BookDictionary.git"
+  },
+  "author": "Aanchal Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aanchal2520/BookDictionary/issues"
+  },
+  "homepage": "https://github.com/aanchal2520/BookDictionary#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
