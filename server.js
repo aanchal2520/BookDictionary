@@ -3,16 +3,10 @@ const app = express();
 const mysql = require('mysql');
 const PORT = 3000;
 
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'slpa76542',
-    database: 'bookdictionary'
-});
-
 app.use(express.json());
 
 const userAuthRoutes = require('./Routes/userAuth');
+const adminAuthRoutes = require('./Routes/adminAuth');
 
 
 app.get('/', (req, res) => {
@@ -20,6 +14,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/userAuth', userAuthRoutes);
+app.use('/adminAuth', adminAuthRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running ${PORT}`);
