@@ -5,6 +5,6 @@ const { getBooks, updateBook, createBook, deleteBook } = require('../Controllers
 router.post('/getBooks', getBooks);
 router.post('/updateBook', updateBook);
 router.post('/createBook', createBook);
-//router.post('/deleteBook', deleteBook);
+router.post('/deleteBook', deleteBook);
 
 module.exports = router;

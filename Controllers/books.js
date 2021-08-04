@@ -37,19 +37,19 @@ exports.updateBook = (req, res) => {
 }
 
 //delete book api -> 
-// exports.deleteBook = (req, res) => {
+exports.deleteBook = (req, res) => {
 
-//     const { book_id } = req.body;
+    const { book_id } = req.body;
 
-//     db.query('Delete from books where book_id = ' + mysql.escape(book_id), (err0, res0) => {
-//         if(!err0) {
-//             return res.status(200).json({ message: 'Book successfully deleted' });
-//         } else {
-//             console.log(err0);
-//             return res.status(500).json({ message: 'Internal Server Error' });
-//         }
-//     })
-// }
+    db.query('Delete from books where book_id = ' + mysql.escape(book_id), (err0, res0) => {
+        if(!err0) {
+            return res.status(200).json({ message: 'Book successfully deleted' });
+        } else {
+            console.log(err0);
+            return res.status(500).json({ message: 'Internal Server Error' });
+        }
+    })
+}
 
 //create book api -> 
 exports.createBook = (req, res) => {
