@@ -51,4 +51,35 @@ exports.updateBook = (req, res) => {
 //     })
 // }
 
+//create book api -> 
+exports.createBook = (req, res) => {
+
+    const { book_name, author_name, description, image_url, copies_available } = req.body;
+
+    db.query('Select book_id from books where book_name = ' + mysql.escape(book_name), (err0, res0) => {
+        if(!err0) {
+            if(res0.length > 0) {
+                return res.status(409).json({ message: 'This book already exists' });
+            } else {
+                db.query('Insert into books (book_name, author_name, description, image_url, copies_available) values (' + 
+                mysql.escape(book_name) + ',' +
+                mysql.escape(author_name) + ',' +
+                mysql.escape(description) + ',' +
+                mysql.escape(image_url) + ',' +
+                mysql.escape(copies_available) +
+                ');', (err1, res1) => {
+                    if(!err1) {
+                        return res.status(200).json({ message: 'Book successfully added!!' });
+                    } else {
+                        console.log(err1);
+                        return res.status(500).json({ message: 'Internal Server Error' });
+                    }
+                })
+            }
+        } else {
+            console.log(err0);
+            return res.status(500).json({ message: 'Internal Server Error' });
+        }
+    })
+}
 
