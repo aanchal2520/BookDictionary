@@ -1,7 +1,11 @@
 const express = require('express');
 const app = express();
 const mysql = require('mysql');
-const PORT = 3000;
+const dotenv = require('dotenv');
+dotenv.config({ path:'./.env' });
+const PORT = process.env.port;
+
+
 
 app.use(express.json());
 
